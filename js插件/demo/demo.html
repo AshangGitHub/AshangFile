@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>Document</title>
+   <script>
+      window.onload=function(){
+         // function Person(name,age,job){
+         //    this.name=name;
+         //    this.age=age;
+         //    this.job=job;
+         //    this.sayName=function(){
+         //       alert(this.name);
+         //    };
+         // }
+         // var Person1= new Person('zh',12,'rz');
+         // var Person2= new Person('zz',15,'zs')
+         
+         
+         // function Person(){};
+         // Person.prototype.name='111';
+         // Person.prototype.age=12;
+         // Person.prototype.job='china';
+         // Person.prototype.sayName=function(){
+         //   console.log(this.name);
+         // }
+         // var Person1= new Person();
+            
+         // var Person2= new Person();
+         // var keys = Object.keys(Person.prototype);
+
+
+         // var p1 = new Person();
+         // p1.name='rob';
+         // p1.age=31;
+         // var p1keys=Object.keys(p1);
+
+         function PP1(name,age,job){
+            this.name=name;
+            this.age=age;
+            this.job=job;
+            this.friends=['asd','abs'];
+         }
+        PP1.prototype={
+           constructor:PP1,
+           sayName:function(){
+              alert(this.name);
+           }
+        }
+        var p1 = new PP1('as',16,'Asd VSD');
+        alert(p1.friends);
+      }
+   </script>
+</head>
+<body>
+   
+</body>
+</html>

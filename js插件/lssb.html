@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>龙叔臭傻逼</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+		body {
+			overflow: hidden;
+		}
+
+		#c {
+			width: 100%;
+			height: 100%;
+			z-index: -1;
+		}
+
+		.cy {
+			z-index: 999;
+			width: 100%;
+			height: 100%;
+			position: fixed;
+			top: 30%;
+			bottom: 0;
+			text-align: center;
+			line-height: 2;
+			padding-left: 20px;
+			left: 0;
+			right: 0;
+			color: #fff;
+			font-size: 120px;
+			letter-spacing: 20px;
+			animation: cyy 2s infinite linear;
+			text-shadow: 0 0 10px #fff,
+			0 0 20px #fff,
+			0 0 30px #fff,
+			0 0 40px #0f0,
+			0 0 70px #0f0,
+			0 0 80px #0f0,
+			0 0 100px #0f0,
+			0 0 150px #0f0;
+		}
+
+		@keyframes cyy {
+			0% {
+				-webkit-transform: scaleX(1);
+				transform: scaleX(1)
+			}
+
+			30% {
+				-webkit-transform: scale3d(1.25, .75, 1);
+				transform: scale3d(1.25, .75, 1)
+			}
+
+			40% {
+				-webkit-transform: scale3d(.75, 1.25, 1);
+				transform: scale3d(.75, 1.25, 1)
+			}
+
+			50% {
+				-webkit-transform: scale3d(1.15, .85, 1);
+				transform: scale3d(1.15, .85, 1)
+			}
+
+			65% {
+				-webkit-transform: scale3d(.95, 1.05, 1);
+				transform: scale3d(.95, 1.05, 1)
+			}
+
+			75% {
+				-webkit-transform: scale3d(1.05, .95, 1);
+				transform: scale3d(1.05, .95, 1)
+			}
+
+			to {
+				-webkit-transform: scaleX(1);
+				transform: scaleX(1)
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<div class='cy'>龙叔臭傻逼</div>
+	<canvas id="c"></canvas>
+	<script>
+		start();
+		function start() {
+			var c = document.getElementById("c");
+			var ctx = c.getContext("2d");
+			c.width = window.innerWidth;
+			c.height = window.innerHeight;
+			//				ctx.fillRect(0,0,100,100);
+			//				a,b,c,d分别代表x方向偏移,y方向偏移,宽，高
+			var string1 = "龙叔你这个臭傻逼";
+			string1.split("");
+			var fontsize = 46;
+			columns = c.width / fontsize;
+			var drop = [];
+			for (var x = 0; x < columns; x++) {
+				drop[x] = 0;
+			}
+			function drap() {
+				ctx.fillStyle = "rgba(0,0,0,0.07)";
+				ctx.fillRect(0, 0, c.width, c.height);
+				ctx.fillStyle = "#0F0";
+				ctx.font = fontsize + "px arial";
+				for (var i = 0; i < drop.length; i++) {
+					var text1 = string1[Math.floor(Math.random() * string1.length)];
+					ctx.fillText(text1, i * fontsize, drop[i] * fontsize);
+					drop[i]++;
+					if (drop[i] * fontsize > c.height && Math.random() > 0.9) {	//90%的几率掉落
+						drop[i] = 0;
+					}
+				}
+			}
+			var s = setInterval(drap, 20);
+		}
+		window.onresize = function () {
+			clearInterval(s);
+			start();
+		}
+	</script>
+</body>
+
+</html>
